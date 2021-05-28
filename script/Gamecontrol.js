@@ -1,5 +1,5 @@
 class Controls {
-
+        
     constructor() {
         this.leftPressed = false;
         this.upPressed = false;
@@ -10,16 +10,6 @@ class Controls {
         this.wPressed = false;
         this.dPressed = false;
         this.sPressed = false;
-
-        this.leftKey = 37;
-        this.upKey = 38;
-        this.rightKey = 39;
-        this.downKey = 40;
-
-        this.aKey = 65;
-        this.wKey = 87;
-        this.dKey = 68;
-        this.sKey = 83; 
 
         document.addEventListener("keydown", this.keyDownHandler.bind(this));
         document.addEventListener("keyup", this.keyUpHandler.bind(this));
@@ -35,43 +25,43 @@ class Controls {
     keyDownHandler(e) {
         if(e.keyCode === 37) {
             this.leftPressed = true;
-        }else if(e.keyCode === this.upKey) {
+        }else if(e.keyCode === 38) {
             this.upPressed = true;
-        }else if(e.keyCode === this.rightKey) {
+        }else if(e.keyCode === 39) {
             this.rightPressed = true;
-        }else if(e.keyCode === this.downKey) {
+        }else if(e.keyCode === 40) {
             this.downPressed = true;
         }
 
-        if(e.keyCode === this.aKey){
+        if(e.keyCode === 65){
             this.aPressed = true;
-        }else if(e.keyCode === this.wKey){
+        }else if(e.keyCode === 87){
             this.wPressed = true;
-        }else if(e.keyCode === this.dKey){
+        }else if(e.keyCode === 68){
             this.dPressed = true;
-        }else if(e.keyCode === this.sKey){
+        }else if(e.keyCode === 83){
             this.sPressed = true;
         }
     }
 
     keyUpHandler(e) {
-        if(e.keyCode === this.leftKey) {
+        if(e.keyCode === 37) {
             this.leftPressed = false;
-        }else if(e.keyCode === this.upKey) {
+        }else if(e.keyCode === 38) {
             this.upPressed = false;
-        }else if(e.keyCode === this.rightKey) {
+        }else if(e.keyCode === 39) {
             this.rightPressed = false;
-        }else if(e.keyCode === this.downKey) {
+        }else if(e.keyCode === 40) {
             this.downPressed = false;
         }
 
-        if(e.keyCode === this.aKey){
+        if(e.keyCode === 65){
             this.aPressed = false;
-        }else if(e.keyCode === this.wKey){
+        }else if(e.keyCode === 87){
             this.wPressed = false;
-        }else if(e.keyCode === this.dKey){
+        }else if(e.keyCode === 68){
             this.dPressed = false;
-        }else if(e.keyCode === this.sKey){
+        }else if(e.keyCode === 83){
             this.sPressed = false;
         }
     }
@@ -110,14 +100,11 @@ class Controls {
             document.getElementById("enemyComputer").style.display="block";
             game.startNewGame();
 
- 
-
-        }
+         }
         else if(game.getGameState() === game.gameStates.GAME_WON){
             game.setGameState(game.gameStates.MODE);
             game.isPlayerEnemyMode = false;
- 
-            document.getElementById("play").style.display ="none";
+             document.getElementById("play").style.display ="none";
             document.getElementById("easy").style.display ="none";
             document.getElementById("medium").style.display ="none";
             document.getElementById("hard").style.display ="none";

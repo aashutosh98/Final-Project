@@ -1,11 +1,9 @@
 
-
-
 function loadAssets(callback) {
 
     for(let i=0;i<14;i++)
     {
-        SPRITES.wall[i]=loadSprite("./images/wall/" +i+ ".png");
+        SPRITES.wall[i]=loadSprite("./images/wall/" +i+ ".png");  // loads all the wall images in an array
     }
     SPRITES.door=loadSprite("./images/door.png");
     SPRITES.mystery=loadSprite("./images/gift.png")
@@ -17,7 +15,7 @@ function loadAssets(callback) {
     SPRITES.lives=loadSprite("./images/heart.png");
 
     AUDIOS.startGame = loadAudio("./sound/startGame.mp3");
-    AUDIOS.eatFood =loadAudio("./sound/eatFood.mp3");
+    AUDIOS.eatFood =loadAudio("./sound/eatFood.mp3");           //loads all the audio
     AUDIOS.die =loadAudio("./sound/die.mp3");
     AUDIOS.eatCookie =loadAudio("./sound/eatCookie.mp3");
     AUDIOS.chasing =loadAudio("./sound/chasing.mp3");
@@ -26,7 +24,6 @@ function loadAssets(callback) {
     console.log("asdasd");
 
     
-
     assetsLoadingLoop(callback);
      function loadSprite(fileName) {
       assetsStillLoading++;

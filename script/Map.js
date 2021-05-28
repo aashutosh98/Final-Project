@@ -25,7 +25,7 @@ class Map {
 
     getTiles() {
         return [
-            [13, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 2, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 14],
+            [13, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 2, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 14],    //layout of map
             [7, 3, 3, 3, 3, 6, 3, 3, 3, 3, 3, 3, 7, 3, 3, 3, 3, 3, 3, 6, 3, 3, 3, 3, 7],
             [7, 3,13 , 10, 14, 3, 13, 10, 10, 10, 14, 3, 7, 3, 13, 10, 10, 10, 14, 3, 13, 10, 14, 3, 7],
             [7, 4, 16, 10, 15, 3, 16, 10, 10, 10, 15, 3, 9, 3, 16, 10, 10, 10, 15, 3, 16, 10, 15, 4, 7],
@@ -59,7 +59,7 @@ class Map {
          for (let col = 0; col < this.TILES.length; col++) {
             for (let row = 0; row < this.TILES[0].length; row++) {
                 var tileType = this.TILES[row][col];
-                if (tileType !==3 || tileType!= 4 ||tileType !==5||tileType !==6) {
+                if (tileType !==this.FOOD || tileType!= this.COOKIE ||tileType !==this.WALL||tileType !==this.BULLET) {       
                     this.drawObstacle(ctx, row, col,tileType);
                 }
                 if (tileType === this.FOOD) {
@@ -84,7 +84,7 @@ class Map {
                 game.currentLevel = 1;
             }else{
                 this.reset();
-                game.pacman.resetForNextLevel();
+                game.pacman.resetForNextLevel();                           // increases speed of ghosts if level increaases
                 game.ghosts.forEach(function(ghost){
                         game.movingAgent.dx = 2;
                         game.movingAgent.dy = 2;
@@ -105,7 +105,7 @@ class Map {
     }
 
     drawObstacle(ctx, row, col,tileType) {
-        var coordinates = this.getTileCoordinates(row,col);
+        var coordinates = this.getTileCoordinates(row,col);    //draws respective wall according to the map array
          switch(tileType){
             case 1:
                 ctx.drawImage(SPRITES.wall[8],coordinates.x,coordinates.y,this.tileSize,this.tileSize);
@@ -147,9 +147,7 @@ class Map {
         }
     }
 }
-
-
-             
+            
 
     drawFoodElement(ctx, row, col){
         ctx.fillStyle = "orange";

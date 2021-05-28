@@ -5,7 +5,7 @@ class Drawer {
     constructor(ctx) {
         this.ctx = ctx;
     }
-
+    //draws pacman from sprite
     drawPacman(pacman) {
         this.ctx.beginPath();
         this.ctx.drawImage(SPRITES.pacManImages,pacman.agentMouth,pacman.agentDirection,SPRITE_CLIPPING_WIDTH,SPRITE_CLIPPING_HEIGHT,pacman.x-pacman.fullRadius-2,pacman.y-pacman.fullRadius-2,2*pacman.radius,2*pacman.radius);
@@ -13,7 +13,7 @@ class Drawer {
     }
 
     
-    drawBulletInfo( pacman){
+    drawBulletInfo( pacman){                    //displays mystery box info at bottom
         this.ctx.font = "20px Calibri";
         this.ctx.fillStyle = "white";
         this.ctx.textAlign="center";
@@ -21,7 +21,7 @@ class Drawer {
         
    }
 
-    drawPacmanDeath(mouth,pacmanX,pacmanY){
+    drawPacmanDeath(mouth,pacmanX,pacmanY){        //draws death of pacman rom respective sprite
         this.ctx.beginPath();
         this.ctx.fillStyle = "BLACK";
         this.ctx.arc(pacmanX+1,pacmanY+1,13,0,2*Math.PI);
@@ -30,14 +30,15 @@ class Drawer {
         this.ctx.drawImage(SPRITES.pacmanDeath,mouth*32,0,SPRITE_CLIPPING_WIDTH,SPRITE_CLIPPING_HEIGHT,pacmanX-12-4,pacmanY-12-2,30,30);
     }
 
-    drawGhost(ghost, chasingMode) {
+    drawGhost(ghost, chasingMode) {             //displays ghosts
         this.ctx.beginPath();
         if(ghost.alive){
-            if(chasingMode){
+            if(chasingMode){                //displays vulnurable ghosts
                 ghost.agentMouth = game.agentSprite.GHOST_DEATH*SPRITE_CLIPPING_WIDTH*2;
                 ghost.agentDirection = ghost.agentDirection == 0 ? SPRITE_CLIPPING_HEIGHT : 0;
                 this.ctx.drawImage(SPRITES.pacManImages,ghost.agentMouth,ghost.agentDirection,SPRITE_CLIPPING_WIDTH,SPRITE_CLIPPING_HEIGHT,ghost.x-ghost.fullRadius-2,ghost.y-ghost.fullRadius-2,2*ghost.radius,2*ghost.radius);
             }else{
+                //displays dead ghosts
                 this.ctx.drawImage(SPRITES.pacManImages,ghost.agentMouth,ghost.agentDirection,SPRITE_CLIPPING_WIDTH,SPRITE_CLIPPING_HEIGHT,ghost.x-ghost.fullRadius-2,ghost.y-ghost.fullRadius-2,2*ghost.radius,2*ghost.radius);
             }
         }else{
@@ -46,7 +47,7 @@ class Drawer {
         this.ctx.closePath();
     }
 
-    drawScore(score) {
+    drawScore(score) {                          //displays scores
         this.ctx.font = "20px Calibri";
         this.ctx.fillStyle = "white";
         this.ctx.fillText("Score: " + score, 80, 615);
@@ -78,8 +79,8 @@ class Drawer {
         this.ctx.closePath();
     }
 
-    modeScreen(){
-          this.ctx.beginPath();
+    modeScreen(){            
+          this.ctx.beginPath();   
         this.ctx.fillStyle = "black";
         this.ctx.fillRect(0,0,game.canvas.width,game.canvas.height);
         this.ctx.fill();

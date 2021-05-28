@@ -9,8 +9,7 @@ class Ghost extends MovingAgent {
         const startCoords = map.getTileCenter(startingTile.row, startingTile.col);
 
         this.x = startCoords.x;
-        this.y = startCoords.y;
-
+        this.y = startCoords.y;    //initial coordinates
         this.alive = true;
         this.deadTick = 0;
         this.lookAheadForPinky = 4;

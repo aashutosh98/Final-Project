@@ -1,12 +1,11 @@
- 
 const CHASE_TIMEOUT = 20;
 const SCATTER_TIMEOUT = 7;
 const FINAL_GAME_LEVEL = 2;
 
 class Game{
-    constructor(canvas,CANVAS_WIDHT,CANVAS_HEIGHT){
+    constructor(canvas,CANVAS_WIDTH,CANVAS_HEIGHT){
         this.canvas = canvas;
-        this.canvas.width = CANVAS_WIDHT;
+        this.canvas.width = CANVAS_WIDTH;
         this.canvas.height = CANVAS_HEIGHT;
         this.ctx = this.canvas.getContext('2d');
         this.drawer = new Drawer(this.ctx);
@@ -234,6 +233,7 @@ class Game{
                     this.drawer.drawLives(this.pacman.lives);
 
                     if (ghostCollision && !this.pacman.chasingMode) {
+                        this.audioPlayer.stopAllSounds();
                         this.audioPlayer.dieSound.play()
                         this.animatePacmanDeath(this.pacman);
                         this.pacman.die();

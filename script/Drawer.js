@@ -17,7 +17,7 @@ class Drawer {
         this.ctx.font = "20px Calibri";
         this.ctx.fillStyle = "white";
         this.ctx.textAlign="center";
-        this.ctx.fillText( pacman, 300, 20);
+        this.ctx.fillText( pacman, 300, 615);
         
    }
 
@@ -49,13 +49,13 @@ class Drawer {
     drawScore(score) {
         this.ctx.font = "20px Calibri";
         this.ctx.fillStyle = "white";
-        this.ctx.fillText("Score: " + score, 80, 20);
+        this.ctx.fillText("Score: " + score, 80, 615);
     }
 
     drawLives(lives) {
         let x=500;
         for(let i=0;i<lives;i++){
-            this.ctx.drawImage(SPRITES.lives,x,5,20,20);
+            this.ctx.drawImage(SPRITES.lives,x,600,20,20);
             x+=25;
         }
     }

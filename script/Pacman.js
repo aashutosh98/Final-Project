@@ -55,13 +55,13 @@ class Pacman extends MovingAgent {
                     }
                     else if(x==2){
                         this.lives++;
-                        this.info="+1 life";
+                        this.info="life increased";
                         game.audioPlayer.eatCookieSound.play();
 
                     }
                     else{
                         this.lives--;
-                        this.info="-life";
+                        this.info="life decreased";
                         game.audioPlayer.dieSound.play();
 
 

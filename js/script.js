@@ -45,9 +45,14 @@ function loadAssets(callback) {
     AUDIOS.chasing =loadAudio("sound/chasing.mp3");
     AUDIOS.eatGhost =loadAudio("sound/eatGhost.mp3");
     AUDIOS.ghostDead =loadAudio("sound/ghostDead.mp3");
+    console.log("asdasd");
 
-
-
+    for(let i=0;i<14;i++)
+    {
+        SPRITES.wall[i]=loadSprite("./images/wall/" +i+ ".png");
+    }
+    SPRITES.door=loadSprite("./images/door.png");
+    SPRITES.mystery=loadSprite("./images/gift.png")
     SPRITES.pacManImages = loadSprite('./images/pac.png');
     SPRITES.pacmanLogo = loadSprite('./images/pacman-logo.png');
     SPRITES.gameOverScreen = loadSprite('./images/gameOverFinal1.png');
@@ -69,16 +74,9 @@ const AUDIOS = {};
 const CANVAS_HEIGHT = 600;
 const CANVAS_WIDTH = 600;
 
-SPRITES.door=new Image();
-SPRITES.door.src="./images/door.png";
+ 
 SPRITES.wall=[];
-for(let i=0;i<14;i++){
-    SPRITES.wall[i]=new Image();
-    SPRITES.wall[i].src="./images/wall/"+i+".png";
-
-}
-SPRITES.mystery=new Image();
-SPRITES.mystery.src="./images/gift.png";
+ 
 
 
 let canvas = document.getElementById('canvas');
